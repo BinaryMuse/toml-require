@@ -1,0 +1,15 @@
+{
+  "name": "toml-require",
+  "version": "1.0.0",
+  "description": "require() .toml files with Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": "git://github.com/BinaryMuse/toml-require.git",
+  "author": "Brandon Tilley <brandon@brandontilley.com>",
+  "license": "MIT",
+  "dependencies": {
+    "toml": "~2.0.2"
+  }
+}
