@@ -1,5 +1,6 @@
 var fs = require('fs');
 var toml = require('toml');
+var semver = require('semver');
 
 var installed = false;
 
@@ -9,7 +10,12 @@ function install() {
   }
 
   require.extensions['.toml'] = function(module, filename) {
-    var data, src = fs.readFileSync(filename, {encoding: 'utf8'});
+    var data, option, src;
+    if (semver.lt(process.versions.node, '0.10.0'))
+      option = 'utf8';
+    else
+      option = {encoding: 'utf8'};
+    src = fs.readFileSync(filename, option);
     try {
       data = toml.parse(src);
     } catch (e) {

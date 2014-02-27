@@ -10,6 +10,10 @@
   "author": "Brandon Tilley <brandon@brandontilley.com>",
   "license": "MIT",
   "dependencies": {
-    "toml": "~2.0.2"
+    "toml": "~2.0.2",
+    "semver": "~2.2.1"
+  },
+  "engines": {
+    "node": ">= 0.6"
   }
 }
