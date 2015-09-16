@@ -4,10 +4,13 @@ var semver = require('semver');
 
 var installed = false;
 
-function install() {
+function install(options) {
   if (installed) {
     return;
   }
+
+  options = options || {};
+  var parser = options.toml || toml;
 
   require.extensions['.toml'] = function(module, filename) {
     var data, option, src;
@@ -17,7 +20,7 @@ function install() {
       option = {encoding: 'utf8'};
     src = fs.readFileSync(filename, option);
     try {
-      data = toml.parse(src);
+      data = parser.parse(src);
     } catch (e) {
       if (e.line && e.column) {
         var tomlCompileError = new Error("Error compiling " + filename + " at line " + e.line +

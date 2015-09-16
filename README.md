@@ -18,9 +18,13 @@ Usage
 -----
 
 ```javascript
-require('toml-require').install();
+require('toml-require').install(options);
 require('./myConfig.toml');
 ```
+
+`options` is optional, but takes the following keys:
+
+* `toml`: `toml-require` will use it's own version of `toml` by default, but if you want to specify a particular version of the `toml` package, you can require it yourself and pass it as this option (e.g. `require('toml-require').install({toml: require('toml')})`)
 
 License
 -------
